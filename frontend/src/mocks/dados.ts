@@ -1,6 +1,9 @@
 import type { z } from 'zod';
 import type {
   ColecaoAreasSchema,
+  Partes,
+  Produto,
+  TrechosSchema,
   ColecaoEstabelecimentosSchema,
   ColecaoSobreposicoesSchema,
   Consulta,
@@ -128,4 +131,39 @@ export const CONSULTA_SOBREPOSICAO: Consulta = {
   ],
   total_areas: 5,
   resumo: 'Área escolar e industrial.',
+};
+
+export const PARTES: Partes = {
+  tipos: ['escola', 'industria', 'residencia'],
+  linhas: [
+    { tipos: [], classes: [] },
+    { tipos: ['escola'], classes: ['escolar'] },
+    { tipos: ['industria'], classes: ['industrial'] },
+    { tipos: ['residencia'], classes: ['residencial'] },
+    { tipos: ['escola', 'industria'], classes: ['escolar', 'industrial'] },
+    { tipos: ['escola', 'residencia'], classes: ['escolar'] },
+    { tipos: ['industria', 'residencia'], classes: ['industrial'] },
+    { tipos: ['escola', 'industria', 'residencia'], classes: ['escolar', 'industrial'] },
+  ],
+};
+
+export const PRODUTO: Produto = {
+  estabelecimentos: 9,
+  areas: 4,
+  pares: 36,
+  pares_com_pertinencia: 10,
+  fora_de_todas: [],
+  amostra: [{ estabelecimento: 'Fatec Jacareí', area: 'Jardim Santa Maria', pertence: true }],
+};
+
+export const TRECHOS: z.input<typeof TrechosSchema> = {
+  trechos: [
+    {
+      nome: 'pertence',
+      arquivo: 'zoneamento/geo/conjuntos.py',
+      linha: 18,
+      codigo:
+        'def pertence(pontos, areas):\n    return gpd.sjoin(pontos, areas, how="inner", predicate="within")\n',
+    },
+  ],
 };

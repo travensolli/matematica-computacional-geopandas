@@ -1,7 +1,5 @@
 import '@fontsource-variable/atkinson-hyperlegible-next';
-import '@fontsource/stix-two-text/400.css';
-import '@fontsource/stix-two-text/400-italic.css';
-import '@fontsource/stix-two-math';
+import '@fontsource/libertinus-math';
 import './estilos/global.css';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StrictMode } from 'react';

@@ -33,6 +33,8 @@
   --sem-classe-suave: #e3e7ea;
   /* limite do município: o universo U */
   --universo: #14212b;
+  /* resultado de uma operação de conjuntos, como um marca-texto */
+  --resultado: #0f8b8d;
 
   --erro: #b3261e;
   --erro-suave: #fbe7e5;
@@ -67,6 +69,7 @@
   --sem-classe: #a3aeb8;
   --sem-classe-suave: #24313d;
   --universo: #e7edf2;
+  --resultado: #3cc7c4;
 
   --erro: #f28b82;
   --erro-suave: #3d1c1a;
@@ -92,8 +95,8 @@
   /* Fontes servidas pelo próprio app: a demonstração funciona sem internet. */
   --font-sans:
     'Atkinson Hyperlegible Next Variable', ui-sans-serif, system-ui, 'Segoe UI', Roboto, sans-serif;
-  --font-notacao: 'STIX Two Text', 'STIX Two Math', 'Cambria Math', Cambria, serif;
-  --font-matematica: 'STIX Two Math', math, 'Cambria Math', serif;
+  --font-notacao: 'Libertinus Math', 'Cambria Math', Cambria, serif;
+  --font-matematica: 'Libertinus Math', math, 'Cambria Math', serif;
   --font-mono:
     ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
 
@@ -121,6 +124,7 @@
   --color-sem-classe: var(--sem-classe);
   --color-sem-classe-suave: var(--sem-classe-suave);
   --color-universo: var(--universo);
+  --color-resultado: var(--resultado);
 
   --color-erro: var(--erro);
   --color-erro-suave: var(--erro-suave);

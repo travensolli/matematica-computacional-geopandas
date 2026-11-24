@@ -173,3 +173,28 @@ sempre a opção mais fiel ao texto original.
   um _c_ em telas de densidade comum, como as de projetor.
 - **Material citado, não reproduzido:** os conceitos são parafraseados e a referência segue o
   formato pedido pelo autor.
+
+## 2026-11-24: A semente de Jacareí
+
+- **Fontes:**
+  - o limite do município vem da API de malhas do IBGE (código 3524402);
+  - escolas, indústrias, lotes industriais, condomínios residenciais e parques vêm do
+    OpenStreetMap, baixados uma vez por `scripts/baixar_fontes.py`;
+  - `scripts/montar_semente.py` monta a semente versionada em `backend/dados/semente/`.
+- **Áreas:**
+  - o entorno da Fatec Jacareí, desenhado;
+  - o raio de 1 km da Fatec, calculado com `buffer`;
+  - o polo industrial da Via Dutra e o distrito BASF–Sany, envoltórias dos lotes industriais;
+  - o Residencial Fogaça, o Viveiro Municipal e o Parque da Cidade, polígonos do OpenStreetMap.
+- **Casos reais:**
+  - o polo industrial é escolar e industrial porque o SEST SENAT, um centro de formação, fica
+    dentro dele;
+  - o Parque da Cidade ⊂ entorno da Fatec ⊂ raio de 1 km dá dois subconjuntos próprios.
+- **Residências ilustrativas:** o OpenStreetMap não mapeia as casas de Jacareí uma a uma (no
+  Residencial Fogaça há uma só). As 11 residências são pontos ilustrativos, com fonte
+  "ilustrativa", e só servem para classificar o Residencial Fogaça e o entorno da Fatec.
+- **Fatec Jacareí:** a escola não tem nome no OpenStreetMap; entra pela coordenada da Figura 14
+  do material de apoio.
+- **Overpass:** a instância principal recusa o User-Agent padrão do curl e estava sobrecarregada.
+  O script se identifica, espera cada vez mais entre as tentativas e alterna entre cinco
+  servidores. O app nunca depende dela em execução.

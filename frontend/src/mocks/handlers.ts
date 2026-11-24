@@ -1,5 +1,14 @@
 import { http, HttpResponse } from 'msw';
-import { AREAS, CONSULTA_SOBREPOSICAO, ESTABELECIMENTOS, MUNICIPIO, SOBREPOSICOES } from './dados';
+import {
+  AREAS,
+  CONSULTA_SOBREPOSICAO,
+  ESTABELECIMENTOS,
+  MUNICIPIO,
+  PARTES,
+  PRODUTO,
+  SOBREPOSICOES,
+  TRECHOS,
+} from './dados';
 
 export const handlers = [
   http.get('/api/saude', () =>
@@ -10,4 +19,7 @@ export const handlers = [
   http.get('/api/sobreposicoes', () => HttpResponse.json(SOBREPOSICOES)),
   http.get('/api/municipio', () => HttpResponse.json(MUNICIPIO)),
   http.get('/api/consulta', () => HttpResponse.json(CONSULTA_SOBREPOSICAO)),
+  http.get('/api/conjuntos/partes', () => HttpResponse.json(PARTES)),
+  http.get('/api/conjuntos/produto', () => HttpResponse.json(PRODUTO)),
+  http.get('/api/teoria/trechos', () => HttpResponse.json(TRECHOS)),
 ];

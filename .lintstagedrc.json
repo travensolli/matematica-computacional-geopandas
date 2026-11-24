@@ -1,5 +1,5 @@
 {
-  "*.{js,mjs,cjs}": ["prettier --write"],
+  "*.{ts,tsx,js,mjs,cjs}": ["eslint --fix --no-warn-ignored", "prettier --write"],
   "*.{json,md,yml,yaml,css,html}": ["prettier --write"],
   "backend/**/*.py": ["backend/.venv/bin/ruff check --fix", "backend/.venv/bin/ruff format"]
 }

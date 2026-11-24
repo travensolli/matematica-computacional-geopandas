@@ -39,6 +39,7 @@ export interface MapaZoneamentoProps {
   destacadas?: readonly number[];
   pontoConsulta?: { lat: number; lng: number } | null;
   aoClicar?: (lat: number, lng: number) => void;
+  aoClicarEstabelecimento?: (id: number) => void;
   aoCriar?: (mapa: MapaLeaflet) => void;
   /** Cursor em cruz quando o clique no mapa marca algo. */
   cursorDeMira?: boolean;
@@ -85,12 +86,17 @@ export function MapaZoneamento({
   destacadas = [],
   pontoConsulta,
   aoClicar,
+  aoClicarEstabelecimento,
   aoCriar,
   cursorDeMira = false,
   rotulo,
   children,
 }: MapaZoneamentoProps) {
   const mapa = useRef<MapaLeaflet | null>(null);
+  const clicarEstabelecimento = useRef(aoClicarEstabelecimento);
+  useEffect(() => {
+    clicarEstabelecimento.current = aoClicarEstabelecimento;
+  }, [aoClicarEstabelecimento]);
 
   const registrar = useCallback(
     (instancia: MapaLeaflet | null) => {

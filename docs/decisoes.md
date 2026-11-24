@@ -147,3 +147,16 @@ sempre a opção mais fiel ao texto original.
   não entram na ordem do Tab. Quem navega pelo teclado tem a lista de áreas, a consulta por
   coordenadas e o botão "Usar o centro do mapa".
 - **Consulta na URL:** `/mapa?lat=…&lng=…` abre a consulta pronta, para compartilhar um resultado.
+
+## 2026-11-24: Cadastro pela interface
+
+- **Desenho:** o Leaflet-Geoman substitui o Leaflet.draw do protótipo, que está sem manutenção.
+  Ele tem dicas em português e recusa arestas que se cruzam já no desenho; o servidor valida de
+  novo antes de gravar.
+- **Reclassificação explicada:** ao salvar ou excluir um estabelecimento, a interface compara a
+  classificação das áreas antes e depois e diz quais mudaram, por exemplo "Vila residencial passou
+  de residencial para escolar".
+- **Exclusão sempre confirmada** num diálogo que nomeia a ação ("Excluir área").
+- **Restaurar a semente com o servidor parado:** `flask --app zoneamento semear --reset` regrava os
+  arquivos, mas um servidor que já está rodando continua com o cadastro na memória. Pare o
+  servidor, restaure e suba de novo.

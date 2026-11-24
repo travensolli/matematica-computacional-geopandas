@@ -26,9 +26,13 @@ export function Dialogo({ aberto, aoFechar, titulo, descricao, children, acoes }
     if (!aberto) return;
     const anterior = document.activeElement as HTMLElement | null;
     const rolagem = document.body.style.overflow;
+    // O resto da página fica inerte: nem o foco nem os leitores de tela saem do diálogo.
+    const raiz = document.getElementById('raiz');
+    raiz?.setAttribute('inert', '');
     document.body.style.overflow = 'hidden';
     painel.current?.focus();
     return () => {
+      raiz?.removeAttribute('inert');
       document.body.style.overflow = rolagem;
       anterior?.focus?.();
     };

@@ -198,3 +198,14 @@ sempre a opção mais fiel ao texto original.
 - **Overpass:** a instância principal recusa o User-Agent padrão do curl e estava sobrecarregada.
   O script se identifica, espera cada vez mais entre as tentativas e alterna entre cinco
   servidores. O app nunca depende dela em execução.
+
+## 2026-11-24: Laboratório de operações
+
+- **Tela própria (`/operacoes`)** para as operações da teoria sobre áreas reais: A ∪ B, A ∩ B,
+  A − B, B − A e A Δ B, mais as relações =, ⊆, ⊂ e a disjunção, e o produto cartesiano E × A.
+- **PRJ.14 × PRJ.15 lado a lado:** cada resultado mostra a chamada GeoPandas executada
+  (`gpd.overlay`) e a consulta equivalente em PostGIS (`ST_Intersection` e afins), que é o que
+  o PRJ.14 faria no banco.
+- **A e B como no diagrama de Venn:** no mapa, A tem hachura numa direção e contorno contínuo, B
+  na outra e contorno tracejado, com a letra no centro, e o resultado aparece na cor de resultado
+  da página Teoria.

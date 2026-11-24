@@ -123,3 +123,17 @@ sempre a opção mais fiel ao texto original.
 - **Consequência:** o servidor roda com um único processo (várias threads), para que todas as
   requisições vejam a mesma memória. O arquivo GeoJSON pode ser aberto em qualquer SIG ou no
   próprio Leaflet.
+
+## 2026-11-24: Contrato da API
+
+- **Erros:** entrada recusada responde 422 e registro ou rota inexistente responde 404, sempre no
+  formato `{erro, campo, detalhes}` e em português. O pydantic confere a estrutura do corpo
+  (campos obrigatórios, tipos, campos a mais) e a validação do domínio confere as regras
+  (polígono válido, tipo de estabelecimento, coordenadas).
+- **Classificação nunca gravada:** a classe de uma área é recalculada a cada leitura a partir dos
+  estabelecimentos. A área criada ou editada já volta classificada na resposta.
+- **A ⊆ U é informativo:** cada área traz `dentro_do_municipio`, mas o cadastro não é bloqueado
+  fora de Jacareí. O sistema vale para qualquer região; Jacareí é a ilustração pedida.
+- **Código exibido é o código executado:** `/api/teoria/trechos` devolve, com `inspect.getsource`,
+  o código-fonte das funções de conjuntos e da regra de classificação, e `/api/conjuntos/partes`
+  devolve a tabela de P(T) calculada pela própria regra.

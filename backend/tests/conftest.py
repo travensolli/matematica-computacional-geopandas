@@ -86,3 +86,17 @@ def semente(tmp_path) -> Path:
     )
     municipio.to_file(pasta / "municipio.geojson", driver="GeoJSON")
     return pasta
+
+
+@pytest.fixture
+def app(tmp_path, semente):
+    """Aplicação Flask com o cadastro num diretório temporário, iniciado pela semente."""
+    from zoneamento import create_app
+    from zoneamento.config import Config
+
+    return create_app(Config(tmp_path / "dados", semente))
+
+
+@pytest.fixture
+def cliente(app):
+    return app.test_client()

@@ -1,0 +1,15 @@
+node_modules
+dist
+coverage
+pnpm-lock.yaml
+playwright-report
+test-results
+frontend/public/mockServiceWorker.js
+docs/figuras/*.png
+docs/figuras/*.svg
+backend/dados/semente
+backend/dados/brutos
+backend/dados/execucao
+backend/tests/fixtures
+.husky/_
+.venv

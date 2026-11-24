@@ -25,8 +25,8 @@ export function Layout() {
       >
         Ir para o conteúdo
       </a>
-      <header className="sticky top-0 z-[1200] border-b border-linha bg-superficie">
-        <div className="mx-auto flex h-14 max-w-[90rem] items-center gap-3 px-4">
+      <header className="sticky top-0 z-[1200] h-14 border-b border-linha bg-superficie">
+        <div className="mx-auto flex h-full max-w-[90rem] items-center gap-3 px-4">
           <Link
             to="/"
             className="flex min-h-toque items-center gap-2 rounded-controle font-bold text-tinta no-underline"

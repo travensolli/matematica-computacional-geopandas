@@ -1,0 +1,4 @@
+* text=auto eol=lf
+pnpm-lock.yaml -diff
+*.png binary
+*.pdf binary

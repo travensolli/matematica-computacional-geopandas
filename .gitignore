@@ -1,0 +1,36 @@
+# dependências e builds
+node_modules/
+dist/
+build/
+coverage/
+*.tsbuildinfo
+.vite/
+
+# python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# dados gerados em execução e downloads brutos
+backend/dados/execucao/
+backend/dados/brutos/
+
+# testes de ponta a ponta
+playwright-report/
+test-results/
+blob-report/
+
+# ambiente
+.claude/
+.env
+.env.*.local
+*.log
+.DS_Store
+
+# material de apoio da disciplina (cópia para uso pessoal)
+docs/set_theory.pdf

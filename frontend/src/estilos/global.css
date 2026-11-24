@@ -54,7 +54,7 @@
   }
   math {
     font-family: var(--font-matematica);
-    font-size: 1.08em;
+    font-size: 1.15em;
   }
   @media (prefers-reduced-motion: reduce) {
     *,

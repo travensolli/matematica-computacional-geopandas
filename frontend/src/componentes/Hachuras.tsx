@@ -40,10 +40,10 @@ export function DefinicoesHachuras() {
           angulo={0}
           opacidadeFundo={0.3}
         />
-        <pattern id={ID_HACHURA.misto} width="7" height="7" patternUnits="userSpaceOnUse">
-          <rect width="7" height="7" style={{ fill: 'var(--escolar)', fillOpacity: 0.12 }} />
-          <path d="M0 7 L7 0" style={{ stroke: 'var(--escolar)', strokeWidth: 1.6 }} />
-          <path d="M0 0 L7 7" style={{ stroke: 'var(--industrial)', strokeWidth: 1.6 }} />
+        <pattern id={ID_HACHURA.misto} width="9" height="9" patternUnits="userSpaceOnUse">
+          <rect width="9" height="9" style={{ fill: 'var(--escolar)', fillOpacity: 0.08 }} />
+          <path d="M0 9 L9 0" style={{ stroke: 'var(--escolar)', strokeWidth: 1.3 }} />
+          <path d="M0 0 L9 9" style={{ stroke: 'var(--industrial)', strokeWidth: 1.3 }} />
         </pattern>
         <pattern id={ID_HACHURA.nenhuma} width="6" height="6" patternUnits="userSpaceOnUse">
           <rect width="6" height="6" style={{ fill: 'var(--sem-classe)', fillOpacity: 0.1 }} />

@@ -116,6 +116,14 @@
 .leaflet-container a {
   color: var(--color-link);
 }
+/* Mapa base em cinza, como uma planta; no tema escuro, invertido. Só a camada de blocos recebe o
+   filtro: as áreas, as hachuras e os marcadores mantêm as cores da legenda. */
+.leaflet-tile-pane {
+  filter: grayscale(1) contrast(0.9) brightness(1.04);
+}
+.tema-escuro .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) grayscale(1) brightness(0.78) contrast(0.9);
+}
 .leaflet-control-attribution {
   font-size: 0.7rem;
 }
@@ -137,4 +145,21 @@
 .leaflet-interactive:focus-visible {
   outline: none;
   box-shadow: none;
+}
+
+/* Marcador de estabelecimento: círculo na cor do tipo com o ícone do tipo. */
+.marcador-estabelecimento {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 999px;
+  background: var(--cor);
+  border: 2px solid var(--superficie);
+  box-shadow: 0 1px 3px rgb(16 25 35 / 0.35);
+}
+.marcador-estabelecimento.novo {
+  width: 28px;
+  height: 28px;
+  border-color: var(--tinta);
 }

@@ -76,3 +76,24 @@ sempre a opção mais fiel ao texto original.
 
 - O tempo de apresentação não foi informado. Por isso não há modo apresentação; o roteiro de
   demonstração com Jacareí fica no README.
+
+## 2026-11-24: As operações de conjuntos ficam num módulo só
+
+- **Contexto:** a parte teórica precisa mostrar o código que o sistema de fato executa, e não uma
+  cópia que possa divergir dele.
+- **Decisão:** `backend/src/zoneamento/geo/conjuntos.py` concentra pertinência, igualdade,
+  inclusão, união, intersecção, diferenças e produto cartesiano. Cada função é curta e cita a
+  seção e a equação das notas de aula. Classificação, consulta de ponto e sobreposições são
+  compostas a partir dele.
+- **Consequência:** a página Teoria pode exibir o código-fonte dessas funções lido do próprio
+  backend. A regra de classificação fica em `dominio/classificacao.py`, sobre `set` do Python, e é
+  testada em todo o conjunto das partes de T.
+
+## 2026-11-24: Ambiente de desenvolvimento
+
+- Python 3.14.4 com venv próprio em `backend/.venv`, criado com `python -m venv` e instalado com
+  `pip install -e ".[dev]"`; o `uv` não está instalado na máquina.
+- GeoPandas 1.2, Shapely 2.2, pandas 3.1, pyogrio 0.13 e pyproj 3.8.
+- Node 22.22.1 e pnpm 10.34.5, fixado em `packageManager`.
+- Os nomes das exceções do domínio ficam em português (`ErroValidacao`, `NaoEncontrado`); por
+  isso a regra N818 do ruff está desligada.

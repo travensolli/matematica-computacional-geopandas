@@ -137,3 +137,13 @@ sempre a opção mais fiel ao texto original.
 - **Código exibido é o código executado:** `/api/teoria/trechos` devolve, com `inspect.getsource`,
   o código-fonte das funções de conjuntos e da regra de classificação, e `/api/conjuntos/partes`
   devolve a tabela de P(T) calculada pela própria regra.
+
+## 2026-11-24: Mapa base e acessibilidade do mapa
+
+- **Mapa base:** os blocos da CARTO passaram a exigir chave de API. O sistema usa os blocos padrão
+  do OpenStreetMap, sem chave e com atribuição, e um filtro CSS só na camada de blocos os deixa em
+  cinza (invertidos no tema escuro). As hachuras das classes ficam em destaque sobre a planta.
+- **Marcadores fora da tabulação:** com mais de uma centena de estabelecimentos, os marcadores
+  não entram na ordem do Tab. Quem navega pelo teclado tem a lista de áreas, a consulta por
+  coordenadas e o botão "Usar o centro do mapa".
+- **Consulta na URL:** `/mapa?lat=…&lng=…` abre a consulta pronta, para compartilhar um resultado.

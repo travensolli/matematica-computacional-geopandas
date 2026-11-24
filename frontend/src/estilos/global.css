@@ -1,0 +1,140 @@
+@import 'tailwindcss';
+@import './tokens.css';
+
+@custom-variant dark (&:where(.tema-escuro, .tema-escuro *));
+
+@layer base {
+  html {
+    font-family: var(--font-sans);
+    color-scheme: light;
+    -webkit-text-size-adjust: 100%;
+  }
+  html.tema-escuro {
+    color-scheme: dark;
+  }
+  body {
+    background-color: var(--color-papel);
+    color: var(--color-tinta);
+    min-height: 100dvh;
+    line-height: var(--leading-interface);
+    -webkit-font-smoothing: antialiased;
+  }
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+  p,
+  li,
+  dd {
+    text-wrap: pretty;
+  }
+  a {
+    color: var(--color-link);
+    text-underline-offset: 0.18em;
+  }
+  /* Anel duplo: contorno na cor da tinta e halo âmbar por fora. Funciona sobre o papel, sobre
+     a tinta e sobre o mapa. */
+  :focus-visible {
+    outline: 2px solid var(--color-tinta);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 5px var(--color-foco);
+  }
+  button,
+  [role='button'],
+  a,
+  label,
+  summary,
+  select {
+    touch-action: manipulation;
+  }
+  ::selection {
+    background-color: var(--color-escolar-suave);
+    color: var(--color-tinta);
+  }
+  math {
+    font-family: var(--font-matematica);
+    font-size: 1.08em;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+/* Texto corrido: linha curta e entrelinha de leitura. */
+@utility prosa {
+  max-width: 66ch;
+  line-height: var(--leading-prosa);
+}
+
+/* Notação de conjuntos escrita no meio do texto, como "A ∩ B". */
+@utility notacao {
+  font-family: var(--font-notacao);
+  font-size: 1.06em;
+  white-space: nowrap;
+}
+
+@utility rolagem-fina {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-linha-forte) transparent;
+}
+
+@keyframes surgir {
+  from {
+    opacity: 0;
+    transform: translateY(0.4rem);
+  }
+}
+
+/* Movimento só em resposta a uma ação: um resultado que acabou de chegar. */
+@utility animar-surgir {
+  animation: surgir 180ms var(--ease-suave) both;
+}
+
+@keyframes surgir-fundo {
+  from {
+    opacity: 0;
+  }
+}
+
+@utility animar-fundo {
+  animation: surgir-fundo 150ms var(--ease-suave) both;
+}
+
+/* Leaflet: controles e textos com a mesma tipografia e o mesmo foco do resto da interface. */
+.leaflet-container {
+  font-family: var(--font-sans);
+  background-color: var(--color-superficie-suave);
+}
+.leaflet-container a {
+  color: var(--color-link);
+}
+.leaflet-control-attribution {
+  font-size: 0.7rem;
+}
+.tema-escuro .leaflet-control-attribution {
+  background: rgb(16 25 35 / 0.8);
+  color: var(--color-tinta-suave);
+}
+.leaflet-tooltip.rotulo-mapa {
+  border-radius: var(--radius-controle);
+  border-color: var(--color-linha-forte);
+  background: var(--color-superficie);
+  color: var(--color-tinta);
+  font-size: 0.85rem;
+  box-shadow: var(--shadow-flutuante);
+}
+.leaflet-tooltip.rotulo-mapa::before {
+  display: none;
+}
+.leaflet-interactive:focus-visible {
+  outline: none;
+  box-shadow: none;
+}

@@ -10,14 +10,30 @@
   "packageManager": "pnpm@10.34.5",
   "scripts": {
     "prepare": "husky",
+    "dev": "concurrently -k -n api,web -c blue,magenta \"pnpm dev:api\" \"pnpm --filter @zoneamento/web dev\"",
+    "dev:api": "cd backend && .venv/bin/flask --app zoneamento run --port 5000 --debug",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "typecheck": "pnpm --filter @zoneamento/web typecheck",
+    "test": "pnpm --filter @zoneamento/web test",
+    "build": "pnpm --filter @zoneamento/web build"
   },
   "devDependencies": {
     "@commitlint/cli": "^21.2.4",
     "@commitlint/config-conventional": "^21.2.4",
+    "@eslint/js": "^10.0.1",
+    "concurrently": "^9.2.5",
+    "eslint": "^10.15.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-react-refresh": "^0.5.8",
+    "globals": "^17.14.0",
     "husky": "^9.1.7",
     "lint-staged": "^17.6.2",
-    "prettier": "^3.10.1"
+    "prettier": "^3.10.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.74.0"
   }
 }

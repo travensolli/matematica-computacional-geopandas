@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Cadastro e classificação de áreas de Jacareí em escolar, industrial ou residencial, com a teoria dos conjuntos aplicada pelo GeoPandas."
+    />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Conjuntos no mapa</title>
+    <script>
+      (function () {
+        try {
+          var salvo = localStorage.getItem('tema');
+          var escuro =
+            salvo === 'escuro' ||
+            (salvo === null && window.matchMedia('(prefers-color-scheme: dark)').matches);
+          if (escuro) document.documentElement.classList.add('tema-escuro');
+        } catch (_e) {
+          /* sem localStorage: fica no tema claro */
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="raiz"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

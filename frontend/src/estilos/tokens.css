@@ -1,0 +1,145 @@
+/* Tokens de design. A paleta segue a convenção dos mapas de uso do solo: institucional em azul,
+   industrial em violeta e residencial em amarelo. Pares de texto conferidos em WCAG AA (4,5:1)
+   nos dois temas; `--linha` é decorativa e os contornos de controle usam `--linha-forte`. */
+
+:root {
+  --papel: #f2f4f3;
+  --superficie: #ffffff;
+  --superficie-suave: #e6ebe8;
+  --linha: #cfd6d3;
+  --linha-forte: #75817c;
+  --tinta: #14212b;
+  --tinta-suave: #4a5660;
+  --tinta-invertida: #ffffff;
+
+  /* ação principal: a própria tinta, como num desenho técnico */
+  --acao: #14212b;
+  --acao-hover: #2a3d4d;
+  --acao-contraste: #ffffff;
+  --link: #1d5fa8;
+
+  /* foco em anel duplo: contorno na cor da tinta e halo âmbar, visível em qualquer fundo */
+  --foco: #f5b800;
+
+  /* classes de área */
+  --escolar: #1d5fa8;
+  --escolar-suave: #dce8f7;
+  --industrial: #7b3f98;
+  --industrial-suave: #eee2f5;
+  --residencial: #e8b730;
+  --residencial-traco: #7a5b00;
+  --residencial-suave: #fbf0cf;
+  --sem-classe: #5f6873;
+  --sem-classe-suave: #e3e7ea;
+  /* limite do município: o universo U */
+  --universo: #14212b;
+
+  --erro: #b3261e;
+  --erro-suave: #fbe7e5;
+  --sucesso: #1e6b3a;
+  --sucesso-suave: #e2f3e8;
+}
+
+.tema-escuro {
+  --papel: #101923;
+  --superficie: #16222e;
+  --superficie-suave: #1d2b38;
+  --linha: #2c3b48;
+  --linha-forte: #7d8b97;
+  --tinta: #e7edf2;
+  --tinta-suave: #a9b6c1;
+  --tinta-invertida: #101923;
+
+  --acao: #e7edf2;
+  --acao-hover: #c6d2dc;
+  --acao-contraste: #101923;
+  --link: #7ab0ff;
+
+  --foco: #f5b800;
+
+  --escolar: #7ab0ff;
+  --escolar-suave: #182f4c;
+  --industrial: #c9a2f2;
+  --industrial-suave: #2d2140;
+  --residencial: #f2cd5c;
+  --residencial-traco: #f2cd5c;
+  --residencial-suave: #3a3016;
+  --sem-classe: #a3aeb8;
+  --sem-classe-suave: #24313d;
+  --universo: #e7edf2;
+
+  --erro: #f28b82;
+  --erro-suave: #3d1c1a;
+  --sucesso: #6fd39a;
+  --sucesso-suave: #15301f;
+}
+
+/* Densidade. `--alvo` é o piso de altura dos controles: 44 px no toque (WCAG 2.5.5) e 32 px
+   com mouse ou trackpad, acima dos 24 px de WCAG 2.2 SC 2.5.8. */
+:root {
+  --alvo: 2.75rem;
+  --alvo-g: 3rem;
+}
+
+@media (pointer: fine) and (hover: hover) {
+  :root {
+    --alvo: 2rem;
+    --alvo-g: 2.5rem;
+  }
+}
+
+@theme inline {
+  /* Fontes servidas pelo próprio app: a demonstração funciona sem internet. */
+  --font-sans:
+    'Atkinson Hyperlegible Next Variable', ui-sans-serif, system-ui, 'Segoe UI', Roboto, sans-serif;
+  --font-notacao: 'STIX Two Text', 'STIX Two Math', 'Cambria Math', Cambria, serif;
+  --font-matematica: 'STIX Two Math', math, 'Cambria Math', serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+
+  --color-papel: var(--papel);
+  --color-superficie: var(--superficie);
+  --color-superficie-suave: var(--superficie-suave);
+  --color-linha: var(--linha);
+  --color-linha-forte: var(--linha-forte);
+  --color-tinta: var(--tinta);
+  --color-tinta-suave: var(--tinta-suave);
+  --color-tinta-invertida: var(--tinta-invertida);
+  --color-acao: var(--acao);
+  --color-acao-hover: var(--acao-hover);
+  --color-acao-contraste: var(--acao-contraste);
+  --color-link: var(--link);
+  --color-foco: var(--foco);
+
+  --color-escolar: var(--escolar);
+  --color-escolar-suave: var(--escolar-suave);
+  --color-industrial: var(--industrial);
+  --color-industrial-suave: var(--industrial-suave);
+  --color-residencial: var(--residencial);
+  --color-residencial-traco: var(--residencial-traco);
+  --color-residencial-suave: var(--residencial-suave);
+  --color-sem-classe: var(--sem-classe);
+  --color-sem-classe-suave: var(--sem-classe-suave);
+  --color-universo: var(--universo);
+
+  --color-erro: var(--erro);
+  --color-erro-suave: var(--erro-suave);
+  --color-sucesso: var(--sucesso);
+  --color-sucesso-suave: var(--sucesso-suave);
+
+  /* Raios por hierarquia: controle pequeno, painel médio. Nada de raio único para tudo. */
+  --radius-controle: 0.375rem;
+  --radius-painel: 0.625rem;
+
+  --spacing-toque: var(--alvo);
+  --spacing-toque-g: var(--alvo-g);
+
+  --leading-dados: 1.3;
+  --leading-interface: 1.45;
+  --leading-prosa: 1.6;
+
+  /* Sombra só para o que flutua sobre o mapa. */
+  --shadow-flutuante: 0 6px 24px rgb(16 25 35 / 0.18);
+
+  --ease-suave: cubic-bezier(0.2, 0, 0, 1);
+}

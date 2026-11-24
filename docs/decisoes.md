@@ -160,3 +160,16 @@ sempre a opção mais fiel ao texto original.
 - **Restaurar a semente com o servidor parado:** `flask --app zoneamento semear --reset` regrava os
   arquivos, mas um servidor que já está rodando continua com o cadastro na memória. Pare o
   servidor, restaure e suba de novo.
+
+## 2026-11-24: A parte teórica do sistema
+
+- **Lugar:** a tela inicial (`/`) é a parte teórica. Ela abre com a ideia central ("cada área do
+  mapa é um conjunto"), define as classes em notação de conjuntos e percorre os conceitos das
+  notas de aula na ordem do material, cada um ligado à tela onde trabalha.
+- **Nada copiado à mão:** o código exibido vem de `/api/teoria/trechos`, a tabela de P(T) de
+  `/api/conjuntos/partes` e os números do produto cartesiano de `/api/conjuntos/produto`.
+- **Fórmulas em MathML**, legíveis por leitores de tela, sempre acompanhadas de uma leitura em
+  português. A fonte é a Libertinus Math, servida pelo app: na STIX Two, o _e_ itálico parecia
+  um _c_ em telas de densidade comum, como as de projetor.
+- **Material citado, não reproduzido:** os conceitos são parafraseados e a referência segue o
+  formato pedido pelo autor.

@@ -9,6 +9,8 @@ description = "PRJ.15: cadastro e classificação de áreas com GeoPandas (backe
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
+  "flask>=3.1",
+  "pydantic>=2.9",
   "geopandas>=1.0",
   "shapely>=2.0",
   "pyogrio>=0.10",
@@ -18,6 +20,7 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = ["pytest>=8.3", "pytest-cov>=6.0", "ruff>=0.8"]
+prod = ["gunicorn>=23.0"]
 
 [tool.setuptools.packages.find]
 where = ["src"]

@@ -34,7 +34,7 @@ export function ProvedorAvisos({ children }: { children: ReactNode }) {
       {children}
       <div
         aria-live="polite"
-        className="pointer-events-none fixed inset-x-0 bottom-4 z-[1500] flex flex-col items-center gap-2 px-4"
+        className="pointer-events-none fixed inset-x-0 bottom-4 z-[1500] flex flex-col items-center gap-2 px-4 md:right-auto md:left-4 md:w-[23rem] md:items-stretch md:px-0"
       >
         {avisos.map((aviso) => {
           const Icone = aviso.tipo === 'erro' ? CircleAlert : CircleCheck;

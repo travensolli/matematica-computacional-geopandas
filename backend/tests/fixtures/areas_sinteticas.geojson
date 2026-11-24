@@ -1,0 +1,14 @@
+{
+  "type": "FeatureCollection",
+  "name": "areas_jacarei_exemplo",
+  "features": [
+    {"type": "Feature", "properties": {"nome": "Área A: núcleo central"},
+     "geometry": {"type": "Polygon", "coordinates": [[[-45.9760,-23.2995],[-45.9585,-23.2990],[-45.9580,-23.3110],[-45.9700,-23.3135],[-45.9765,-23.3080],[-45.9760,-23.2995]]]}},
+    {"type": "Feature", "properties": {"nome": "Área B: faixa industrial leste"},
+     "geometry": {"type": "Polygon", "coordinates": [[[-45.9555,-23.2915],[-45.9340,-23.2930],[-45.9330,-23.3060],[-45.9550,-23.3065],[-45.9555,-23.2915]]]}},
+    {"type": "Feature", "properties": {"nome": "Área C: bairro residencial sul"},
+     "geometry": {"type": "Polygon", "coordinates": [[[-45.9760,-23.3175],[-45.9560,-23.3170],[-45.9550,-23.3320],[-45.9750,-23.3330],[-45.9760,-23.3175]]]}},
+    {"type": "Feature", "properties": {"nome": "Área D: corredor misto"},
+     "geometry": {"type": "Polygon", "coordinates": [[[-45.9625,-23.2965],[-45.9475,-23.2960],[-45.9470,-23.3085],[-45.9620,-23.3090],[-45.9625,-23.2965]]]}}
+  ]
+}

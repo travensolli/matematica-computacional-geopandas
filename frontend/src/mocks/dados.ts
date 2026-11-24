@@ -1,6 +1,8 @@
 import type { z } from 'zod';
 import type {
   ColecaoAreasSchema,
+  Relacoes,
+  ResultadoOperacao,
   Partes,
   Produto,
   TrechosSchema,
@@ -166,4 +168,35 @@ export const TRECHOS: z.input<typeof TrechosSchema> = {
         'def pertence(pontos, areas):\n    return gpd.sjoin(pontos, areas, how="inner", predicate="within")\n',
     },
   ],
+};
+
+export const OPERACAO_INTERSECCAO: ResultadoOperacao = {
+  operacao: 'interseccao',
+  a: { id: 1, nome: 'Jardim Santa Maria' },
+  b: { id: 2, nome: 'Distrito industrial' },
+  vazio: false,
+  geometria: {
+    type: 'Polygon',
+    coordinates: [
+      [
+        [-45.96, -23.31],
+        [-45.955, -23.31],
+        [-45.955, -23.305],
+        [-45.96, -23.31],
+      ],
+    ],
+  },
+  area_km2: 0.123,
+  estabelecimentos: [1, 2],
+};
+
+export const RELACOES: Relacoes = {
+  a: { id: 1, nome: 'Jardim Santa Maria' },
+  b: { id: 2, nome: 'Distrito industrial' },
+  iguais: false,
+  a_subconjunto_b: true,
+  b_subconjunto_a: false,
+  a_subconjunto_proprio_b: true,
+  b_subconjunto_proprio_a: false,
+  disjuntos: false,
 };

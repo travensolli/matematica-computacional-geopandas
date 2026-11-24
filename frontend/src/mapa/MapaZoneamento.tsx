@@ -12,10 +12,12 @@ import { descreverClasses, ROTULO_TIPO } from '../dominio/classes';
 import { formatarNumero } from '../utilitarios/formatar';
 import { escaparHtml } from '../utilitarios/html';
 import {
+  ATRIBUICAO,
   CENTRO_JACAREI,
   ESTILO_MUNICIPIO,
   ESTILO_SOBREPOSICAO,
   estiloArea,
+  FUNDO,
   htmlMarcador,
   ZOOM_INICIAL,
 } from './estilos';
@@ -46,12 +48,6 @@ export interface MapaZoneamentoProps {
   rotulo: string;
   children?: ReactNode;
 }
-
-/* Blocos padrão do OpenStreetMap, sem chave de API. O filtro CSS da camada de blocos
-   (global.css) os deixa em cinza, como uma planta, para as hachuras das classes se destacarem. */
-const FUNDO = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
-const ATRIBUICAO =
-  '&copy; <a href="https://www.openstreetmap.org/copyright">colaboradores do OpenStreetMap</a> | limite municipal: IBGE';
 
 const ICONE_CONSULTA = L.divIcon({
   className: '',

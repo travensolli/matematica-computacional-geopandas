@@ -163,3 +163,18 @@
   height: 28px;
   border-color: var(--tinta);
 }
+
+/* Letra do conjunto no centro da área, como nos diagramas de Venn. */
+.leaflet-tooltip.rotulo-conjunto {
+  border: 1.5px solid var(--color-tinta);
+  border-radius: 999px;
+  background: var(--color-superficie);
+  color: var(--color-tinta);
+  padding: 0 0.55rem;
+  font-size: 1.15rem;
+  font-style: italic;
+  box-shadow: none;
+}
+.leaflet-tooltip.rotulo-conjunto::before {
+  display: none;
+}

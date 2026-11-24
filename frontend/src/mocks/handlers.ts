@@ -4,8 +4,10 @@ import {
   CONSULTA_SOBREPOSICAO,
   ESTABELECIMENTOS,
   MUNICIPIO,
+  OPERACAO_INTERSECCAO,
   PARTES,
   PRODUTO,
+  RELACOES,
   SOBREPOSICOES,
   TRECHOS,
 } from './dados';
@@ -22,4 +24,9 @@ export const handlers = [
   http.get('/api/conjuntos/partes', () => HttpResponse.json(PARTES)),
   http.get('/api/conjuntos/produto', () => HttpResponse.json(PRODUTO)),
   http.get('/api/teoria/trechos', () => HttpResponse.json(TRECHOS)),
+  http.get('/api/conjuntos/operacao', ({ request }) => {
+    const op = new URL(request.url).searchParams.get('op') ?? 'interseccao';
+    return HttpResponse.json({ ...OPERACAO_INTERSECCAO, operacao: op });
+  }),
+  http.get('/api/conjuntos/relacoes', () => HttpResponse.json(RELACOES)),
 ];

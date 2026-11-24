@@ -8,6 +8,12 @@ import { preenchimento } from '../componentes/padroes-hachura';
 export const CENTRO_JACAREI: [number, number] = [-23.3, -45.966];
 export const ZOOM_INICIAL = 13;
 
+/* Blocos padrão do OpenStreetMap, sem chave de API. O filtro CSS da camada de blocos
+   (global.css) os deixa em cinza, como uma planta, para as hachuras das classes se destacarem. */
+export const FUNDO = 'https://tile.openstreetmap.org/{z}/{x}/{y}.png';
+export const ATRIBUICAO =
+  '&copy; <a href="https://www.openstreetmap.org/copyright">colaboradores do OpenStreetMap</a> | limite municipal: IBGE';
+
 const CONTORNO: Record<Aparencia, string> = {
   escolar: 'var(--escolar)',
   industrial: 'var(--industrial)',

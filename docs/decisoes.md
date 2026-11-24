@@ -97,3 +97,12 @@ sempre a opção mais fiel ao texto original.
 - Node 22.22.1 e pnpm 10.34.5, fixado em `packageManager`.
 - Os nomes das exceções do domínio ficam em português (`ErroValidacao`, `NaoEncontrado`); por
   isso a regra N818 do ruff está desligada.
+
+## 2026-11-24: O que conta como sobreposição
+
+- **Contexto:** o overlay da camada de áreas com ela mesma devolve também A ∩ A e os pares
+  repetidos (B ∩ A), e duas áreas vizinhas que só dividem a borda têm interseção de área nula.
+- **Decisão:** ficam só os pares com `id_1 < id_2` e área de pelo menos 1 m². Um estabelecimento
+  pode pertencer a duas áreas ao mesmo tempo, e conta em ambas.
+- **Consequência:** a camada de sobreposições mostra exatamente as regiões A ∩ B do diagrama de
+  Venn do mapa, sem duplicatas.

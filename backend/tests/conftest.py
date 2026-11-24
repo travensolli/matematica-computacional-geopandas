@@ -1,5 +1,7 @@
 """Fixtures compartilhadas pelos testes do backend."""
 
+from pathlib import Path
+
 import geopandas as gpd
 import pytest
 from shapely.geometry import Point, box
@@ -49,3 +51,21 @@ def pontos() -> gpd.GeoDataFrame:
         ],
         crs=CRS_METRICO,
     )
+
+
+FIXTURES = Path(__file__).parent / "fixtures"
+
+
+@pytest.fixture
+def areas_sinteticas() -> gpd.GeoDataFrame:
+    """A (núcleo central), B (faixa industrial), C (bairro residencial) e D (corredor misto)."""
+    areas = gpd.read_file(FIXTURES / "areas_sinteticas.geojson")
+    areas.insert(0, "id", range(1, len(areas) + 1))
+    return areas
+
+
+@pytest.fixture
+def estabelecimentos_sinteticos() -> gpd.GeoDataFrame:
+    estabelecimentos = gpd.read_file(FIXTURES / "estabelecimentos_sinteticos.geojson")
+    estabelecimentos.insert(0, "id", range(1, len(estabelecimentos) + 1))
+    return estabelecimentos

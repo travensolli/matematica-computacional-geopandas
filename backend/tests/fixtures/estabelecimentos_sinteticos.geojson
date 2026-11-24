@@ -1,0 +1,15 @@
+{
+  "type": "FeatureCollection",
+  "name": "estabelecimentos_jacarei_exemplo",
+  "features": [
+    {"type": "Feature", "properties": {"nome": "Escola municipal (exemplo)", "tipo": "escola"}, "geometry": {"type": "Point", "coordinates": [-45.9680,-23.3050]}},
+    {"type": "Feature", "properties": {"nome": "Escola estadual (exemplo)", "tipo": "escola"}, "geometry": {"type": "Point", "coordinates": [-45.9570,-23.3020]}},
+    {"type": "Feature", "properties": {"nome": "Residência 1", "tipo": "residencia"}, "geometry": {"type": "Point", "coordinates": [-45.9720,-23.3020]}},
+    {"type": "Feature", "properties": {"nome": "Residência 2", "tipo": "residencia"}, "geometry": {"type": "Point", "coordinates": [-45.9650,-23.3100]}},
+    {"type": "Feature", "properties": {"nome": "Metalúrgica (exemplo)", "tipo": "industria"}, "geometry": {"type": "Point", "coordinates": [-45.9510,-23.3000]}},
+    {"type": "Feature", "properties": {"nome": "Fábrica de embalagens (exemplo)", "tipo": "industria"}, "geometry": {"type": "Point", "coordinates": [-45.9400,-23.2980]}},
+    {"type": "Feature", "properties": {"nome": "Residência 3", "tipo": "residencia"}, "geometry": {"type": "Point", "coordinates": [-45.9700,-23.3220]}},
+    {"type": "Feature", "properties": {"nome": "Residência 4", "tipo": "residencia"}, "geometry": {"type": "Point", "coordinates": [-45.9620,-23.3260]}},
+    {"type": "Feature", "properties": {"nome": "Residência 5", "tipo": "residencia"}, "geometry": {"type": "Point", "coordinates": [-45.9600,-23.3290]}}
+  ]
+}

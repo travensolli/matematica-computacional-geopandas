@@ -106,3 +106,20 @@ sempre a opção mais fiel ao texto original.
   pode pertencer a duas áreas ao mesmo tempo, e conta em ambas.
 - **Consequência:** a camada de sobreposições mostra exatamente as regiões A ∩ B do diagrama de
   Venn do mapa, sem duplicatas.
+
+## 2026-11-24: Como o GeoPandas faz o papel do banco
+
+- **Contexto:** sem banco de dados, o cadastro precisa sobreviver a reinícios do servidor e a
+  requisições simultâneas.
+- **Decisão:**
+  - cada camada (`areas`, `estabelecimentos`) é um GeoDataFrame em memória, gravado em
+    `backend/dados/execucao/<camada>.geojson` com `to_file` a cada alteração;
+  - a gravação vai para um arquivo temporário e só então substitui o original (`os.replace`);
+  - uma trava (`threading.RLock`) serializa as escritas;
+  - o id novo é o maior id existente mais um;
+  - as coordenadas são gravadas com 7 casas decimais (cerca de 1 cm) e arredondadas para essa
+    grade antes de comparar, para que a igualdade A = B funcione com o que está no arquivo;
+  - na primeira execução, o diretório é preenchido com a semente versionada.
+- **Consequência:** o servidor roda com um único processo (várias threads), para que todas as
+  requisições vejam a mesma memória. O arquivo GeoJSON pode ser aberto em qualquer SIG ou no
+  próprio Leaflet.

@@ -1,5 +1,6 @@
 """Fixtures compartilhadas pelos testes do backend."""
 
+import shutil
 from pathlib import Path
 
 import geopandas as gpd
@@ -69,3 +70,19 @@ def estabelecimentos_sinteticos() -> gpd.GeoDataFrame:
     estabelecimentos = gpd.read_file(FIXTURES / "estabelecimentos_sinteticos.geojson")
     estabelecimentos.insert(0, "id", range(1, len(estabelecimentos) + 1))
     return estabelecimentos
+
+
+@pytest.fixture
+def semente(tmp_path) -> Path:
+    """Diretório de semente com o exemplo sintético, sem ids, e um município que o envolve."""
+    pasta = tmp_path / "semente"
+    pasta.mkdir()
+    shutil.copyfile(FIXTURES / "areas_sinteticas.geojson", pasta / "areas.geojson")
+    shutil.copyfile(
+        FIXTURES / "estabelecimentos_sinteticos.geojson", pasta / "estabelecimentos.geojson"
+    )
+    municipio = gpd.GeoDataFrame(
+        {"codarea": ["3524402"]}, geometry=[box(-46.0, -23.35, -45.9, -23.28)], crs="EPSG:4326"
+    )
+    municipio.to_file(pasta / "municipio.geojson", driver="GeoJSON")
+    return pasta

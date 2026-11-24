@@ -15,6 +15,7 @@ export type FiguraVenn =
   | 'uniao'
   | 'interseccao'
   | 'diferenca'
+  | 'diferenca_inversa'
   | 'diferenca_simetrica'
   | 'produto';
 
@@ -29,6 +30,7 @@ const DESCRICAO: Record<FiguraVenn, string> = {
   uniao: 'A união de A e B: as duas regiões pintadas.',
   interseccao: 'A intersecção de A e B: só a região comum pintada.',
   diferenca: 'A diferença A menos B: a parte de A fora de B pintada.',
+  diferenca_inversa: 'A diferença B menos A: a parte de B fora de A pintada.',
   diferenca_simetrica: 'A diferença simétrica: as partes de A e de B fora da região comum.',
   produto: 'Uma grade de pares: cada linha um elemento, cada coluna um conjunto.',
 };
@@ -81,7 +83,7 @@ function DoisConjuntos({ id, figura }: { id: string; figura: FiguraVenn }) {
       {figura === 'diferenca' || figura === 'diferenca_simetrica' ? (
         <circle {...a} {...RESULTADO} mask={`url(#${id}-sem-b)`} />
       ) : null}
-      {figura === 'diferenca_simetrica' ? (
+      {figura === 'diferenca_simetrica' || figura === 'diferenca_inversa' ? (
         <circle {...b} {...RESULTADO} mask={`url(#${id}-sem-a)`} />
       ) : null}
       <circle {...a} fill={preenchimento('a')} />
